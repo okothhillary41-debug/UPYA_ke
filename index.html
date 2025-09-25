@@ -208,15 +208,72 @@
     </div>
   </section>
 
-  <!-- GALLERY -->
-  <section id="gallery" class="container" aria-label="Gallery">
-    <h2>Gallery</h2>
-    <div class="gallery" style="margin-top:12px">
-      <img src="431177986_380881104656130_7259226088140137731_n.jpg" alt="logo">
-      <img src="images/gallery2.jpg" alt="Gallery 2" onerror="this.style.display='none'">
-      <img src="images/gallery3.jpg" alt="Gallery 3" onerror="this.style.display='none'">
-    </div>
-  </section>
+ <!-- 📸 Gallery Section -->
+<section id="gallery" class="section">
+  <h2>Our Gallery</h2>
+  <div class="gallery">
+    <img src="images/event1.jpg" alt="Event 1" onclick="openLightbox(this)">
+    <img src="images/event2.jpg" alt="Event 2" onclick="openLightbox(this)">
+    <img src="images/event3.jpg" alt="Event 3" onclick="openLightbox(this)">
+    <img src="images/event4.jpg" alt="Event 4" onclick="openLightbox(this)">
+  </div>
+</section>
+
+<!-- Lightbox popup -->
+<div id="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="">
+</div>
+
+<style>
+/* Gallery images */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+.gallery img {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;   /* Show full image */
+  background: #f4f4f4;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+/* Lightbox styles */
+#lightbox {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+#lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+}
+</style>
+
+<script>
+function openLightbox(img) {
+  document.getElementById("lightbox").style.display = "flex";
+  document.getElementById("lightbox-img").src = img.src;
+}
+function closeLightbox() {
+  document.getElementById("lightbox").style.display = "none";
+}
+</script>
+
 
   <!-- MEMBERSHIP -->
   <section id="membership" class="container" aria-label="Membership">

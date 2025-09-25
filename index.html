@@ -1,154 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Uwezo Pamoja Youths Association - Defining the Undefined</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uwezo Pamoja Youths Association</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    body { font-family: Arial, Helvetica, sans-serif; margin:0; padding:0; color:#333; }
-    .nav { background:#0b5; display:flex; justify-content:center; gap:16px; padding:12px; position:sticky; top:0; }
-    .nav a { color:#023; text-decoration:none; font-weight:700; }
-    header { background: url('images/hero.jpg') center/cover no-repeat, #004a2f; color:#fff; padding:80px 20px; text-align:center; }
-    header h1 { margin:0; font-size:36px; }
-    header p.tag { margin-top:8px; font-size:18px; opacity:0.95; }
-    .container { max-width:1000px; margin:40px auto; padding:0 20px; }
-    h2 { color:#044; margin-top:0; }
-    .values ul { list-style: none; padding:0; display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:10px; }
-    .box { background:#f6f6f6; padding:18px; border-radius:8px; box-shadow:0 1px 4px rgba(0,0,0,0.06); }
-    .gallery { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; }
-    .gallery img { width:240px; border-radius:8px; object-fit:cover; }
-    .contact p { margin:6px 0; }
-    .join { text-align:center; margin:30px 0; }
-    .btn { display:inline-block; padding:12px 20px; background:#0077cc; color:white; border-radius:6px; text-decoration:none; }
-    footer { background:#022; color:#fff; text-align:center; padding:18px; margin-top:40px; }
-    @media (max-width:600px){ header { padding:60px 10px; } .gallery img{width:100%;} }
+    body { margin: 0; font-family: Arial, sans-serif; line-height: 1.6; }
+    section { padding: 60px 20px; }
+    h1, h2, h3 { text-align: center; }
+    p { max-width: 800px; margin: auto; text-align: center; }
+
+    /* Hero Section */
+    #hero {
+      background: url('images/hero-bg.jpg') no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+    }
+    #hero h1 { font-size: 3rem; margin-bottom: 10px; }
+    #hero p { font-size: 1.2rem; margin-bottom: 20px; }
+    .btn {
+      background: white; color: black; padding: 10px 20px;
+      text-decoration: none; border-radius: 5px;
+      font-weight: bold;
+    }
+
+    /* Social Icons */
+    #social-links { text-align: center; margin-top: 20px; }
+    #social-links a { margin: 0 10px; font-size: 30px; text-decoration: none; }
+
+    /* Gallery */
+    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 10px; }
+    .gallery img { width: 100%; border-radius: 8px; }
+
+    /* Footer */
+    footer { background: #222; color: white; text-align: center; padding: 20px; margin-top: 40px; }
   </style>
 </head>
 <body>
 
-  <nav class="nav">
-    <a href="#about">About</a>
-    <a href="#mission">Mission & Vision</a>
-    <a href="#values">Core Values</a>
-    <a href="#history">History</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#join">Become Member</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <!-- Hero Section -->
+  <section id="hero">
+    <div>
+      <h1>Uwezo Pamoja Youths Association</h1>
+      <p>Defining the undefined</p>
+      <a href="#membership" class="btn">Become a Member</a>
+    </div>
+  </section>
 
-  <header>
-    <h1>Uwezo Pamoja Youths Association</h1>
-    <p class="tag">Defining the Undefined</p>
-  </header>
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Us</h2>
+    <p>
+      Uwezo Pamoja Youths Association (UPYA) was founded to empower and inspire young people. 
+      <br><br>
+      <strong>Mission:</strong> To empower, equip, mentor and nurture tomorrow's world. <br>
+      <strong>Vision:</strong> Creating an environment that cultivates positive impact to the community. <br>
+      <strong>Core Values:</strong> Teamwork, Integrity, Transparency, Accountability, Equity.
+    </p>
+  </section>
 
-  <div class="container">
-    <section id="about">
-      <h2>Background / About Us</h2>
-      <div class="box">
-        <p>
-          Uwezo Pamoja Youths Association was founded with the vision of creating an environment that cultivates positive impact to the community.
-          Recognizing the challenges faced by youths — including limited access to education, employment and personal development resources — we established this organization
-          as a platform for growth, collaboration and advocacy. Through leadership training, mentorship, community service and skill development workshops, we equip young
-          individuals with the necessary tools to succeed and take action towards positive change.
-        </p>
-      </div>
-    </section>
+  <!-- Membership Section -->
+  <section id="membership">
+    <h2>Become a Member</h2>
+    <p>Join us and be part of a community shaping tomorrow’s world.</p>
+    <!-- Replace the link below with your Google Form link -->
+    <p><a href="https://https://docs.google.com/forms/d/e/1FAIpQLSc-bVSpzMd9oerUC5GBtiDwGOjnbB7Cel26zq_3IdFLFrBiCw/viewform?usp=sharing&ouid=113163280883322206907" target="_blank" class="btn">Fill Membership Form</a></p>
+  </section>
 
-    <section id="mission" style="margin-top:28px;">
-      <h2>Mission & Vision</h2>
-      <div class="box">
-        <p><strong>Mission:</strong> To empower, equip, mentor and nurture tomorrow's world.</p>
-        <p><strong>Vision:</strong> Creating an environment that cultivates positive impact to the community.</p>
-      </div>
-    </section>
-
-    <section id="values" style="margin-top:28px;">
-      <h2>Core Values</h2>
-      <div class="values box">
-        <ul>
-          <li><strong>Teamwork</strong> — working together for greater impact.</li>
-          <li><strong>Integrity</strong> — honesty and strong moral principles.</li>
-          <li><strong>Transparency</strong> — open and clear communication.</li>
-          <li><strong>Accountability</strong> — owning our actions and results.</li>
-          <li><strong>Equity</strong> — fair opportunities for all youths.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="history" style="margin-top:28px;">
-      <h2>History</h2>
-      <div class="box">
-        <p>
-          The incubation phase of Uwezo Pamoja Youths Association began in 2023, guided by a small group of motivated individuals who recognized the need for a dedicated platform
-          where youths could express their ideas, develop leadership skills and participate in meaningful activities. In 2024 the association was formally founded with the primary goal of uniting,
-          empowering, mentoring and equipping young people to take an active role in shaping their communities and future.
-        </p>
-      </div>
-      <div style="margin-top:12px; text-align:center;">
-        <img src="images/history.jpg" alt="History document" style="max-width:480px; border-radius:6px;">
-      </div>
-    </section>
-
-    <section id="gallery" style="margin-top:28px;">
-      <h2>Gallery</h2>
-      <div class="gallery">
-        <img src="1000096032.jpg" alt="fun day" style=max-width:100%;height:auto">
-        <img src="492334087_652210660856505_4185816417606092736_n.jpg" alt="Gallery image 2"style="width:100%;height:auto">
-        <img src="431177986_380881104656130_7259226088140137731_n.jpg" alt="Association logo" style="width:100%;height:auto">
-      </div>
-    </section>
-
-    <!-- Upcoming Events Section -->
-<section id="events" class="section">
-  <div class="container">
+  <!-- Events Section -->
+  <section id="events">
     <h2>Upcoming Events</h2>
-    <p>Stay updated with our latest activities and community programs.</p>
-    
-    <div class="events">
-      <!-- Event 1 -->
-      <div class="event-card">
-        <img src="images/event1.jpg" alt="Student mentorship">
-        <h3>Nurturing minds, shaping futures.</h3>
-        <p><strong>Date:</strong> October 2, 2025</p>
-        <p><strong>Venue:</strong> Nyamgun Secondary School</p>
-        <p>Inspiring, guiding, and preparing young people for a purposeful life.</p>
-      </div>
+    <p>No upcoming events at the moment. Stay tuned!</p>
+  </section>
 
+  <!-- Gallery Section -->
+  <section id="gallery">
+    <h2>Our Gallery</h2>
+    <div class="gallery">
+      <img src="images/photo1.jpg" alt="Event 1">
+      <img src="images/photo2.jpg" alt="Event 2">
+      <img src="images/photo3.jpg" alt="Event 3">
+    </div>
+  </section>
 
-    <section id="join" style="margin-top:28px;">
-      <h2>Become a Member</h2>
-      <div class="box">
-        <p>Join Uwezo Pamoja Youths Association and be part of a movement that uplifts and empowers young people.</p>
-        <div class="join">
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSc-bVSpzMd9oerUC5GBtiDwGOjnbB7Cel26zq_3IdFLFrBiCw/viewform"
-   target="_blank"
-   class="button">
-  Join Now
-</a>
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: upyakenya001@gmail.com</p>
+    <p>WhatsApp: 0742 717 364</p>
+    <div id="social-links">
+      <a href="https://www.facebook.com/UPYA.kenya" target="_blank" style="color:#1877F2;"><i class="fa-brands fa-facebook"></i></a>
+      <a href="https://wa.me/254742717364" target="_blank" style="color:#25D366;"><i class="fa-brands fa-whatsapp"></i></a>
+      <a href="https://www.instagram.com/UPYA.kenya" target="_blank" style="color:#E4405F;"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://www.youtube.com/UPYA.kenya" target="_blank" style="color:#FF0000;"><i class="fa-brands fa-youtube"></i></a>
+      <a href="mailto:upyakenya001@gmail.com" style="color:#fff;"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+  </section>
 
-          
-
-    <div id="social-links" style="text-align:center; margin-top:20px;">
-  <a href="https://www.facebook.com/UPYA.kenya" target="_blank" style="margin:0 10px; color:#1877F2; font-size:30px;">
-    <i class="fab fa-facebook"></i>
-  </a>
-  <a href="https://wa.me/254742717364" target="_blank" style="margin:0 10px; color:#25D366; font-size:30px;">
-    <i class="fab fa-whatsapp"></i>
-  </a>
-  <a href="https://www.instagram.com/UPYA.kenya" target="_blank" style="margin:0 10px; color:#E4405F; font-size:30px;">
-    <i class="fab fa-instagram"></i>
-  </a>
-  <a href="https://www.youtube.com/UPYA.kenya" target="_blank" style="margin:0 10px; color:#FF0000; font-size:30px;">
-    <i class="fab fa-youtube"></i>
-  </a>
-  <a href="mailto:upyakenya001@gmail.com" style="margin:0 10px; color:#000; font-size:30px;">
-    <i class="fas fa-envelope"></i>
-  </a>
-</div>
-
-
+  <!-- Footer -->
   <footer>
-    <p>© 2025 Uwezo Pamoja Youths Association — Defining the Undefined</p>
+    <p>© 2025 Uwezo Pamoja Youths Association | All Rights Reserved</p>
   </footer>
 
 </body>

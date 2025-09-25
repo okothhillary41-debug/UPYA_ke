@@ -1,115 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Uwezo Pamoja Youths Association</title>
 
-  <!-- Font Awesome for Icons -->
+  <!-- Font Awesome for social icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
-    body { margin: 0; font-family: Arial, sans-serif; line-height: 1.6; scroll-behavior: smooth; }
-    section { padding: 60px 20px; }
-    h1, h2, h3 { text-align: center; margin-bottom: 20px; }
-    p { max-width: 800px; margin: auto; text-align: center; }
-
-    /* Hero Section */
-    #hero {
-      background: url('') no-repeat center center/cover;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-align: center;
-    492334087_652210660856505_4185816417606092736_n.jpg
-    #hero h1 { font-size: 3rem; margin-bottom: 10px; }
-    #hero p { font-size: 1.2rem; margin-bottom: 20px; }
-    .btn {
-      background: white; color: black; padding: 10px 20px;
-      text-decoration: none; border-radius: 5px;
-      font-weight: bold; transition: 0.3s;
+    /* ---------- Basic layout ---------- */
+    :root{
+      --accent:#0077cc;
+      --accent-2:#00a86b;
+      --text:#222;
+      --muted:#666;
+      --maxw:1100px;
     }
-    .btn:hover { background: #444; color: white; }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial; color:var(--text); line-height:1.55}
+    a{color:inherit}
+    .container{max-width:var(--maxw);margin:0 auto;padding:0 18px}
 
-    /* Gallery */
-    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 10px; }
-    .gallery img { width: 100%; border-radius: 8px; }
+    /* ---------- Navigation ---------- */
+    header.topbar{
+      position:sticky; top:0; z-index:60;
+      background:rgba(255,255,255,0.95); backdrop-filter: blur(4px);
+      border-bottom:1px solid rgba(0,0,0,0.06);
+    }
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:var(--maxw);margin:0 auto;padding:10px 18px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{width:44px;height:44px;border-radius:6px;object-fit:cover}
+    .brand h4{margin:0;font-size:1.05rem}
+    nav a{margin-left:16px;text-decoration:none;color:var(--muted);font-weight:600}
+    nav a:hover{color:var(--text)}
 
-    /* Social Links */
-    #social-links { text-align: center; margin-top: 20px; }
-    #social-links a { margin: 0 10px; font-size: 30px; text-decoration: none; }
+    /* ---------- Hero ---------- */
+    #hero{
+      min-height:78vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+      color:#fff;
+      text-align:center;
+      background: linear-gradient(90deg, #0066cc 0%, #00cc66 100%);
+    }
+    /* overlay ensures text remains readable over images */
+    #hero .overlay{
+      position:absolute; inset:0; background:linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35));
+      z-index:1;
+    }
+    #hero .hero-inner{position:relative; z-index:2; padding:28px; max-width:900px}
+    #hero h1{font-size:2.4rem;margin:0 0 8px}
+    #hero p.lead{margin:0 0 18px; font-size:1.05rem; opacity:0.95}
+    .btn-primary{background:#fff;color:#000;padding:10px 18px;border-radius:8px;text-decoration:none;font-weight:700;display:inline-block}
+    .btn-secondary{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.3);padding:9px 16px;border-radius:8px;margin-left:10px;text-decoration:none}
 
-    /* Footer */
-    footer { background: #222; color: white; text-align: center; padding: 20px; margin-top: 40px; }
+    /* ---------- Sections ---------- */
+    section{padding:56px 0}
+    section h2{font-size:1.6rem;margin-bottom:10px}
+    .lead-center{max-width:880px;margin:0 auto;color:var(--muted)}
+
+    /* ---------- cards / values ---------- */
+    .grid{display:grid;gap:16px}
+    .grid-3{grid-template-columns:repeat(3,1fr)}
+    .card{background:#fff;border-radius:10px;padding:18px;box-shadow:0 6px 18px rgba(10,10,10,0.05)}
+    .values ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+    .values li{background:#f7f7f7;padding:10px;border-radius:8px}
+
+    /* ---------- gallery ---------- */
+    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+    .gallery img{width:100%;height:170px;object-fit:cover;border-radius:8px;display:block}
+
+    /* ---------- events ---------- */
+    .events{display:grid;gap:12px}
+    .event{display:flex;gap:12px;align-items:flex-start}
+    .event img{width:120px;height:80px;object-fit:cover;border-radius:6px}
+
+    /* ---------- contact / socials ---------- */
+    .socials{display:flex;gap:12px;justify-content:center;align-items:center}
+    .socials a{font-size:22px;text-decoration:none;padding:8px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center}
+    .socials a.fb{color:#1877F2}
+    .socials a.wa{color:#25D366}
+    .socials a.ig{color:#E4405F}
+    .socials a.yt{color:#FF0000}
+    .socials a.mail{color:#333}
+
+    /* responsive */
+    @media (max-width:900px){ .grid-3{grid-template-columns:repeat(2,1fr)} }
+    @media (max-width:600px){
+      .grid-3{grid-template-columns:1fr}
+      #hero h1{font-size:1.6rem}
+      .event{flex-direction:column}
+      .event img{width:100%; height:160px}
+    }
   </style>
 </head>
 <body>
 
-  <!-- Hero Section -->
-  <section id="hero">
-    <div>
+  <!-- top navigation -->
+  <header class="topbar" aria-label="Main navigation">
+    <div class="nav-inner">
+      <div class="brand">
+        <!-- replace images/logo.png with your logo file in images/ -->
+        <img src="images/logo.png" alt="UPYA logo" onerror="this.style.display='none'">
+        <div>
+          <h4>Uwezo Pamoja Youths Association</h4>
+          <small style="color:var(--muted)">Defining the Undefined</small>
+        </div>
+      </div>
+
+      <nav aria-label="Site links">
+        <a href="#about">About</a>
+        <a href="#mission">Mission</a>
+        <a href="#events">Events</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#membership">Join</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="hero" aria-label="Hero banner">
+    <div class="overlay" id="hero-overlay"></div>
+    <div class="hero-inner container">
       <h1>Uwezo Pamoja Youths Association</h1>
-      <p>Defining the undefined</p>
-      <a href="#membership" class="btn">Become a Member</a>
+      <p class="lead">Defining the undefined — empowering, equipping, mentoring and nurturing tomorrow's world.</p>
+      <a class="btn-primary" href="#membership">Become a Member</a>
+      <a class="btn-secondary" href="#contact">Contact Us</a>
     </div>
   </section>
 
-  <!-- About Section -->
-  <section id="about">
+  <!-- ABOUT -->
+  <section id="about" class="container" aria-label="About">
     <h2>About Us</h2>
-    <p>
-      Uwezo Pamoja Youths Association (UPYA) was founded to empower and inspire young people. 
-      <br><br>
-      <strong>Mission:</strong> To empower, equip, mentor and nurture tomorrow's world. <br>
-      <strong>Vision:</strong> Creating an environment that cultivates positive impact to the community. <br>
-      <strong>Core Values:</strong> Teamwork, Integrity, Transparency, Accountability, Equity.
+    <p class="lead-center">
+      Uwezo Pamoja Youths Association (UPYA) is a youth-driven community focused on building skills,
+      leadership and opportunities for young people. We bring youths together through mentorship,
+      training, community service and talent development to create lasting positive impact.
     </p>
+
+    <div style="height:18px"></div>
+    <div class="grid grid-3">
+      <div class="card">
+        <h3>Our History</h3>
+        <p style="color:var(--muted)">Founded recently by a group of motivated youth leaders to unite and empower the community through practical programs and mentorship.</p>
+        <!-- replace images/history.jpg with your history picture if available -->
+        <img src="images/history.jpg" alt="History" style="width:100%;height:160px;object-fit:cover;border-radius:8px;margin-top:10px" onerror="this.style.display='none'">
+      </div>
+
+      <div class="card">
+        <h3>Mission & Vision</h3>
+        <p><strong>Mission:</strong> To empower, equip, mentor and nurture tomorrow's world.<br><strong>Vision:</strong> Creating an environment that cultivates positive impact to the community.</p>
+      </div>
+
+      <div class="card values">
+        <h3>Core Values</h3>
+        <ul>
+          <li><strong>Teamwork</strong> — working together for greater impact.</li>
+          <li><strong>Integrity</strong> — honesty and strong moral principles.</li>
+          <li><strong>Transparency</strong> — open and clear communication.</li>
+          <li><strong>Accountability</strong> — owning our actions and results.</li>
+          <li><strong>Equity</strong> — fair opportunities for all youths.</li>
+        </ul>
+      </div>
+    </div>
   </section>
 
-  <!-- Membership Section -->
-  <section id="membership">
-    <h2>Become a Member</h2>
-    <p>Join us and be part of a community shaping tomorrow’s world.</p>
-    <!-- Replace the link below with your actual Google Form link -->
-    <p><a href="https://forms.gle/your-form-link" target="_blank" class="btn">Fill Membership Form</a></p>
+  <!-- MISSION (separate anchor so nav link works) -->
+  <section id="mission" class="container" aria-label="Mission and Vision">
+    <h2>Mission & Vision</h2>
+    <p class="lead-center">Mission: To empower, equip, mentor and nurture tomorrow's world. — Vision: Creating an environment that cultivates positive impact to the community.</p>
   </section>
 
-  <!-- Events Section -->
-  <section id="events">
+  <!-- EVENTS -->
+  <section id="events" class="container" aria-label="Upcoming events">
     <h2>Upcoming Events</h2>
-    <p>No upcoming events at the moment. Stay tuned!</p>
-  </section>
+    <p class="lead-center">Stay tuned — we regularly run workshops, community service days and youth summits. Below are upcoming / placeholder events that you can update.</p>
 
-  <!-- Gallery Section -->
-  <section id="gallery">
-    <h2>Our Gallery</h2>
-    <div class="gallery">
-      <img src="images/photo1.jpg" alt="Event 1">
-      <img src="images/photo2.jpg" alt="Event 2">
-      <img src="images/photo3.jpg" alt="Event 3">
+    <div class="events" style="margin-top:18px">
+      <!-- Event card example -->
+      <div class="event card">
+        <img src="images/event1.jpg" alt="Event image" onerror="this.style.display='none'">
+        <div>
+          <h3 style="margin:0 0 6px">Youth Empowerment Workshop</h3>
+          <p style="margin:0;color:var(--muted)"><strong>Date:</strong> Oct 15, 2025 &nbsp; • &nbsp; <strong>Venue:</strong> Kisumu Community Hall</p>
+          <p style="margin-top:8px">A practical session on leadership, entrepreneurship and digital skills for young people.</p>
+        </div>
+      </div>
+
+      <div class="event card">
+        <img src="images/event2.jpg" alt="Event image" onerror="this.style.display='none'">
+        <div>
+          <h3 style="margin:0 0 6px">Community Service Day</h3>
+          <p style="margin:0;color:var(--muted)"><strong>Date:</strong> Nov 5, 2025 &nbsp; • &nbsp; <strong>Venue:</strong> Ahero Town</p>
+          <p style="margin-top:8px">Join us for cleanup, tree planting and mentoring sessions for local school children.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p>Email: upyakenya001@gmail.com</p>
-    <p>WhatsApp: 0742 717 364</p>
-    <div id="social-links">
-      <a href="https://www.facebook.com/UPYA.kenya" target="_blank" style="color:#1877F2;"><i class="fa-brands fa-facebook"></i></a>
-      <a href="https://wa.me/254742717364" target="_blank" style="color:#25D366;"><i class="fa-brands fa-whatsapp"></i></a>
-      <a href="https://www.instagram.com/UPYA.kenya" target="_blank" style="color:#E4405F;"><i class="fa-brands fa-instagram"></i></a>
-      <a href="https://www.youtube.com/UPYA.kenya" target="_blank" style="color:#FF0000;"><i class="fa-brands fa-youtube"></i></a>
-      <a href="mailto:upyakenya001@gmail.com" style="color:#fff;"><i class="fa-solid fa-envelope"></i></a>
+  <!-- GALLERY -->
+  <section id="gallery" class="container" aria-label="Gallery">
+    <h2>Gallery</h2>
+    <div class="gallery" style="margin-top:12px">
+      <img src="images/gallery1.jpg" alt="Gallery 1" onerror="this.style.display='none'">
+      <img src="images/gallery2.jpg" alt="Gallery 2" onerror="this.style.display='none'">
+      <img src="images/gallery3.jpg" alt="Gallery 3" onerror="this.style.display='none'">
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 Uwezo Pamoja Youths Association | All Rights Reserved</p>
+  <!-- MEMBERSHIP -->
+  <section id="membership" class="container" aria-label="Membership">
+    <h2>Become a Member</h2>
+    <p class="lead-center">Join Uwezo Pamoja Youths Association — fill the quick membership form and we will get in touch.</p>
+
+    <!-- BUTTON: replace the google form link with your real form link -->
+    <div style="text-align:center;margin-top:12px">
+      <a class="btn-primary" href="https://forms.gle/YOUR-GOOGLE-FORM-LINK" target="_blank" rel="noopener">Fill Membership Form</a>
+    </div>
+
+    <!-- Optional: embed form inline (uncomment and replace SRC with your form embed link if desired) -->
+    <!--
+    <div style="max-width:900px;margin:20px auto">
+      <iframe src="https://docs.google.com/forms/d/e/YOUR_EMBED_LINK/viewform?embedded=true" width="100%" height="800" frameborder="0">Loading…</iframe>
+    </div>
+    -->
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="container" aria-label="Contact">
+    <h2>Contact & Socials</h2>
+    <p class="lead-center">Email: <a href="mailto:upyakenya001@gmail.com">upyakenya001@gmail.com</a> • WhatsApp: <a href="https://wa.me/254742717364" target="_blank">+254 742 717 364</a></p>
+
+    <div class="socials" style="margin-top:16px">
+      <a class="fb" href="https://www.facebook.com/UPYA.kenya" target="_blank" title="Facebook"><i class="fa-brands fa-facebook fa-2x"></i></a>
+      <a class="wa" href="https://wa.me/254742717364" target="_blank" title="WhatsApp"><i class="fa-brands fa-whatsapp fa-2x"></i></a>
+      <a class="ig" href="https://www.instagram.com/UPYA.kenya" target="_blank" title="Instagram"><i class="fa-brands fa-instagram fa-2x"></i></a>
+      <a class="yt" href="https://www.youtube.com/UPYA.kenya" target="_blank" title="YouTube"><i class="fa-brands fa-youtube fa-2x"></i></a>
+      <a class="mail" href="mailto:upyakenya001@gmail.com" title="Email"><i class="fa-solid fa-envelope fa-2x"></i></a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="padding:18px 0;background:#0b1720;color:#fff;text-align:center">
+    <div class="container">
+      <p style="margin:0">© 2025 Uwezo Pamoja Youths Association — Defining the Undefined</p>
+      <small style="color:#9fb3b0">Built with ❤️ for the community</small>
+    </div>
   </footer>
 
+  <!-- small script to allow smooth-scrolling from old browsers when clicking nav links -->
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(link=>{
+      link.addEventListener('click', function(e){
+        const target = document.querySelector(this.getAttribute('href'));
+        if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth'}); }
+      });
+    });
+  </script>
 </body>
 </html>
